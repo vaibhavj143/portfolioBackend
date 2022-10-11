@@ -2,12 +2,15 @@ import emailHtml from "../config/emailHtml.js";
 import transporterFunction from "../config/transpoter.js";
 import Visitor from "../models/visitor.model.js";
 
-export const addVisitor = async (req, res) => {
-  try {
+export const addVisitor = async(req, res) => {
+  try{
     const body = req.body;
-    const visit =  new Visitor(body);
 
-    await visit.save();
+    const visit = await Visitor.create(body);
+
+    // const visit =  new Visitor(body);
+
+    // await visit.save();
 
     const transporter = await transporterFunction();
 
