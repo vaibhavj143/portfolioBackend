@@ -5,7 +5,7 @@ import Visitor from "../models/visitor.model.js";
 export const addVisitor = async (req, res) => {
   try {
     const body = req.body;
-    const visit = await Visitor.create(body);
+    const visit = await Visitor.insertOne({...body});
 
     const transporter = await transporterFunction();
 
@@ -35,7 +35,7 @@ export const addVisitor = async (req, res) => {
     });
   } catch (error) {
     res.status(500).send({
-      success: true,
+      success: false,
       message: error.message,
     });
   }
