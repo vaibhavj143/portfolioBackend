@@ -5,7 +5,7 @@ import Visitor from "../models/visitor.model.js";
 export const addVisitor = async (req, res) => {
   try {
     const body = req.body;
-    const visit = await new Visitor({...body});
+    const visit =  new Visitor({...body});
 
     await visit.save();
 
