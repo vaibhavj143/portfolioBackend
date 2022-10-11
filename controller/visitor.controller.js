@@ -38,7 +38,7 @@ export const addVisitor = async (req, res) => {
   } catch (error) {
     res.status(500).send({
       success: false,
-     error
+     message : error.message
     });
   }
 };
