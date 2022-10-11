@@ -19,6 +19,14 @@ app.use(cors());
 
 dataBase();
 
+app.get('/',(req,res)=>{
+
+  res.status(200).send({
+    success:true,
+    message:"deployed"
+  })
+})
+
 app.use("/portfolio/api", visitorRoutes);
 
 
