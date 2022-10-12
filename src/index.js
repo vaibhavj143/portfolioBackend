@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 // data base connected
-dataBase()
+
 
 app.get('/',(req,res)=>{
 
@@ -36,10 +36,7 @@ app.use("/portfolio/api", visitorRoutes);
 app.listen(process.env.PORT|| '5050', async () => {
   try {
       //  let mongo =  await  dataBase();
-
-     
-
-
+     await dataBase()
     console.log(`http://localhost:${process.env.PORT|| '5050'}`);
   } catch (error) {
     console.log(`${error.message}`);

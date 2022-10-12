@@ -4,25 +4,15 @@ import mongoose from "mongoose";
 
 import dotenv from 'dotenv'
 
-
 dotenv.config()
 
 const dataBase = async() =>{
 
   try {
     
-   await mongoose.connect(process.env.DATABASE,{
+   await mongoose.connect(process.env.DATABASE ||'mongodb+srv://vaibhav_j143:9414725512rubY.@cluster0.p53xw.mongodb.net/visitor?retryWrites=true&w=majority' ,{
       useNewUrlParser: true,
-      useUnifiedTopology: true }) .then(data => {
-        console.log(
-            `Connected to Mongo! Database name: "${data.connections[0].name}"`,
-        );
-      
-    })
-    .catch(err => {
-        console.error('Error connecting to mongo', err);
-    });
-
+      useUnifiedTopology: true }) 
 
   } catch (error) {
     console.log(error.message);
