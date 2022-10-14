@@ -47,7 +47,6 @@ isAuth:{
     required: true
 }
 
-
 });
 
 
