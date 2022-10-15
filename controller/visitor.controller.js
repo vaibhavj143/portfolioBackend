@@ -3,6 +3,8 @@ import transporterFunction from "../config/transpoter.js";
 import Visitor from "../models/visitor.model.js";
 
 export const addVisitor = async(req, res) => {
+
+
   try{
     const body = req.body;
 
@@ -38,11 +40,11 @@ export const addVisitor = async(req, res) => {
       success: true,
       message: "your request is made now please confirm mail",
     });
-  } catch (error) {
+  } catch (err) {
     res.status(500).send({
       success: false,
-     message : error.message,
-     obj:error
+     message : err.message,
+     obj:err
     });
   }
 };
